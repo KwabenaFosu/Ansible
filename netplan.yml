@@ -1,0 +1,32 @@
+#Script for static IP configuration of host servers
+#sudo netplan generate
+
+#server1@192.168.100.33
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+     dhcp4: no
+     addresses: [192.168.100.33/24]
+     gateway4: 192.168.100.1
+     nameservers:
+       addresses: [192.168.100.1,8.8.8.8,8.8.4.4]
+---
+#server2@192.168.100.34
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+     dhcp4: no
+     addresses: [192.168.100.34/24]
+     gateway4: 192.168.100.1
+     nameservers:
+       addresses: [192.168.100.1,8.8.8.8,8.8.4.4]
+
+#Apply changes
+#sudo netplan apply
+
+#Debug
+#sudo netplan --debug apply
