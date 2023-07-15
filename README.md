@@ -1,1 +1,2 @@
-A repository to document learning how to automate infrastructure using Ansible
+## Learning Ansible
+A repository that contains my ansible learning journey.
